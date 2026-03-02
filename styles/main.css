@@ -90,6 +90,7 @@
             color: var(--accent-color);
             text-decoration: none;
             transition: opacity 0.2s;
+            cursor: pointer;
         }
 
         a:hover {

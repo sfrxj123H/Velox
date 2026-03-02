@@ -12,11 +12,11 @@
             <h2 style="text-align: center; font-style: italic; line-height: 1.4; margin-bottom: .5rem;">
                 Sign Up To <b style="color: var(--accent-color); font-style: normal;">Velox</b>!
             </h2>
-            <h4 style="text-align: center;">Start organizing work effectively today!</h4>
+            <h4 style="text-align: center;" id="status-message">Start organizing work effectively today!</h4>
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1%;" class="accountBox">
                 <div>
-                    <h3>Your Name:</h3>
-                    <input type="text" class="card" style="
+                    <h3>Your Name (1~50):</h3>
+                    <input id="name" type="text" class="card" style="
                     width: 100%;
                     height: 25px;
                     border-color: var(--accent-color);
@@ -29,7 +29,7 @@
                 </div>
                 <div>
                     <h3>Your email:</h3>
-                    <input type="email" class="card" style="
+                    <input id="email" type="email" class="card" style="
                     width: 100%;
                     height: 25px;
                     border-color: var(--accent-color);
@@ -41,8 +41,8 @@
                     margin-bottom: .5rem;">
                 </div>
                 <div>
-                    <h3>Create a password:</h3>
-                    <input type="password" class="card" style="
+                    <h3>New password (6~100):</h3>
+                    <input id="pw1" type="password" class="card" minlength=6 maxlength=100 style="
                     width: 100%;
                     height: 25px;
                     border-color: var(--accent-color);
@@ -54,27 +54,31 @@
                     margin-bottom: .5rem;">
                 </div>
                 <div>
-                    <h3>Verify your password:</h3>
-                    <input type="password" class="card" style="
-                    width: 100%;
-                    height: 25px;
-                    border-color: var(--accent-color);
-                    color: var(--text-color);
-                    font-size: large;
-                    font-family: var(--font-main);
-                    font-weight: bold;
-                    padding: 1rem !important;
-                    margin-bottom: .5rem;">
+                    <h3>Verify password:</h3>
+                    <div style="display: flex; justify-content: center; align-items: center; white-space: nowrap;" class="repw">
+                        <input id="pw2" type="password" class="card" style="
+                        width: 100%;
+                        height: 25px;
+                        border-color: var(--accent-color);
+                        color: var(--text-color);
+                        font-size: large;
+                        font-family: var(--font-main);
+                        font-weight: bold;
+                        padding: 1rem !important;
+                        margin-bottom: .5rem;">
+                        </div>
                 </div>
             </div>
             <br>
             <div style="display: flex; justify-content: center; align-items: center">
-                <input type="checkbox" style="width: 30px; height: 30px;">&nbsp;&nbsp;&nbsp;
-                <p>By signing up, you agree to Velox's <a>Terms of use</a>.</p>
+                <input id="terms" type="checkbox" style="width: 30px; height: 30px;" disabled checked>&nbsp;&nbsp;&nbsp;
+                <p>By signing up, you agree to Velox's <a style="color: var(--text-color);">Terms and Conditions</a>.</p>
             </div>
+            <p class="text-muted" style="text-align: center; font-size: 7px !important;">This website is still in development. Terms and Conditions isn't created yet.</p>
             <br>
-            <button style="display: block; margin: auto;"><h4>Sign Up</h4></button>
+            <button id="submit" style="display: block; margin: auto;"><h4>Sign Up</h4></button>
         </section>
     </div>
 </body>
 </html>
+<script src="../scripts/signup.js" type="module"></script>

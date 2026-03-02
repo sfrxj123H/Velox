@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In - Velox</title>
+    <link href="../styles/main.css" rel="stylesheet">
+</head>
+<body>
+    <div class="intro">
+        <section class="card" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); max-width: 100%; width: 50%;">
+            <h2 style="text-align: center; font-style: italic; line-height: 1.4; margin-bottom: .5rem;">
+                Log In To <b style="color: var(--accent-color); font-style: normal;">Velox</b>!
+            </h2>
+            <h4 style="text-align: center;" id="status-message">Welcome Back!</h4>
+            <div style="display: grid; grid-template-columns: 1fr; gap: 1%;" class="accountBox">
+                <div>
+                    <h3>Your email:</h3>
+                    <input id="email" type="email" class="card" style="
+                    width: 100%;
+                    height: 25px;
+                    border-color: var(--accent-color);
+                    color: var(--text-color);
+                    font-size: large;
+                    font-family: var(--font-main);
+                    font-weight: bold;
+                    padding: 1rem !important;
+                    margin-bottom: .5rem;">
+                </div>
+                <div>
+                    <h3>Enter your password:</h3>
+                    <input id="pw" type="password" class="card" style="
+                    width: 100%;
+                    height: 25px;
+                    border-color: var(--accent-color);
+                    color: var(--text-color);
+                    font-size: large;
+                    font-family: var(--font-main);
+                    font-weight: bold;
+                    padding: 1rem !important;
+                    margin-bottom: .5rem;">
+                </div>
+            </div>
+            <br>
+            <p style="text-align: center;"><a style="color: var(--text-color);" href="#">Forgot password?</a></p>
+            <p class="text-muted" style="text-align: center; font-size: 7px !important;">This website is still in development.</p>
+            <br>
+            <button id="submit" style="display: block; margin: auto;"><h4>Log In</h4></button>
+        </section>
+    </div>
+</body>
+</html>
+<script src="../scripts/login.js" type="module"></script>

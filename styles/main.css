@@ -16,6 +16,7 @@
                 --accent-soft: #e1f5fe;
                 --border-color: #bebebe;
                 --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+                --footer: #021919;
             }
         }
 
@@ -29,6 +30,7 @@
                 --accent-soft: #6f6f6f;
                 --border-color: #2d2d2d;
                 --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+                --footer: #021919;
             }
         }
 
@@ -98,7 +100,7 @@
             background-color: var(--accent-color);
             color: #fff;
             border: none;
-            padding: 0.8rem 1.5rem;
+            padding: 0.8rem .5rem;
             border-radius: var(--border-radius);
             font-weight: 600;
             cursor: pointer;
@@ -134,4 +136,57 @@
             top: 0;
             z-index: 1000;
             width: 100%;
+        }
+
+        footer {
+            color: white;
+            background-color: var(--footer);
+            padding-top: 1px;
+            padding: 0rem 3%;
+            display: static;
+            align-items: center;
+            position: static;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        @media (max-width: 1023px), (max-height: 511px) {
+            header {
+                position: static !important;
+                display:contents !important;
+                text-align: center;
+            }
+            header>h2 {
+                font-size: 200% !important;
+            }
+            header>div>* {
+                font-size: 80% !important;
+            }
+            .headerInteractives {
+                grid-template-columns: 30% 70% !important;
+                margin: auto;
+            }
+            .headerInteractives>h4 {
+                text-align: center !important;
+            }
+            .headerInteractives>*, .headerInteractives>a>button>* {
+                font-size: 120% !important;
+            }
+            .intro>section>h2 {
+                font-size: 200% !important;
+            }
+            .intro>h2 {
+                font-size: 150% !important;
+            }
+            .intro>section>*, .intro>section>a>* {
+                font-size: 100% !important;
+            }
+            .accountBox {
+                grid-template-columns: 1fr !important;
+            }
+            .intro>section>div>div>h3, .intro>section>div>p {
+                font-size: 80% !important;
+            }
         }

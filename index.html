@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Velox</title>
-    <link href="styles/main.css" rel="stylesheet">
+    <link href="./styles/main.css" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -14,15 +14,15 @@
                 <h4 class="text-muted">This app was built for our school's "Shark Tank" project.</h4>
             </div>
             
-            <div style="padding: 1rem; display: flex; justify-content: space-between; align-items: center; width: 400px">
-                <h4><a href="#" style="color: var(--text-main);">Log in</a></h4>
-                <button><h4><a href="#" style="color: var(--bg-color);"><i>Sign Up For Free!</i></a></h4></button>
+            <div style="padding: 1rem; display: grid; grid-template-columns: 35% 65%; align-items: center; min-width: 300px; width: 35%; text-align: end; gap: 5%" class="headerInteractives">
+                <h4><a href="#" style="color: var(--text-main); text-align: end;">Log in</a></h4>
+                <a><button onclick="window.location.href = './signup/index.html'"><h4 style="color: var(--bg-color);"><i>Sign Up For Free!</i></h4></button></a>
             </div>
     </header>
     <div style="text-align: center; margin-bottom: 3rem; width: 100%; background-color: var(--text-muted); color: var(--bg-color); border-color: var(--border-color);">
             <br><h1><b>Velox</b></h1>
             <h3>The <code style="color: black">ALL IN ONE POWERFUL</code> <u>time management</u> tool.</h3><br>
-            <button><h4><a href="#" style="color: var(--bg-color);"><i>Sign Up For Free!</i></a></h4></button><br><br>
+            <a><button onclick="window.location.href = './signup/index.html'"><h4 style="color: var(--bg-color);"><i>Sign Up For Free!</i></h4></button></a><br><br>
             <div style="display: flex; width: 50%; align-items: center; justify-content: space-evenly; margin: 0 auto;">
                 <h4><a href="#" style="color: var(--bg-color);">Log In</a></h4>
                 <h4><a href="#" style="color: var(--bg-color);">Pricing</a></h4>
@@ -55,10 +55,6 @@
             <h2>For everyone!</h2>
             <p>While we have nessasary tools for businesses, Velox also works well with schools, classrooms or just a small friend group. We will always keep classrooms and groups free, forever.</p>
         </section>
-
-        <footer>
-
-        </footer>
     </div>
     <hr style="width: 80%; display: block; margin: auto; color: var(--border-color);">
     <div class="team"  style="text-align: center; font-style: italic;">
@@ -75,6 +71,22 @@
         <br>
         <h4>Tuấn Linh</h4>
         <p>The advertiser, he is responsible for advertising as well as presenting the website</p>
+    </div><br>
+    <hr style="width: 80%; display: block; margin: auto; color: var(--border-color);">
+    <div class="intro">
+        <h2 style="text-align: center; font-style: italic;">
+            What are you waiting for?<br><a><button onclick="window.location.href = './signup/index.html'"><h4 style="color: var(--bg-color);"><i>Sign Up NOW!</i></h4></button></a><br><br>
+        </h2>
+
     </div>
+    <footer>
+        <h2><b>Velox</b></h2>
+        <a style="cursor: pointer; color: white">Contact Us</a>&nbsp;&nbsp;&nbsp;
+        <a style="cursor: pointer; color: white" onclick="window.location.href = './signup/index.html'">Sign Up</a>&nbsp;&nbsp;&nbsp;
+        <a style="cursor: pointer; color: white">Log In</a>&nbsp;&nbsp;&nbsp;
+        <a style="cursor: pointer; color: white">See Pricing</a>&nbsp;&nbsp;&nbsp;
+        <h4 style="text-align: end;">Velox Team 2026</h4>
+        <br>
+    </footer>
 </body>
 </html>

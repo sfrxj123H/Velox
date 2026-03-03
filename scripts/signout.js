@@ -1,6 +1,6 @@
+import { firebaseConfig } from "./firebaseConfig.js";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
 import * as FirebaseAuth from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-import { firebaseConfig } from "./firebaseConfig.js";
 
 // Initialize Firebase locally for this module
 const app = initializeApp(firebaseConfig);

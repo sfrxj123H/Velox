@@ -1,11 +1,7 @@
-/**
- * Firebase Login Utility
- * Uses Namespace Import: FirebaseAuth
- */
 
+import { firebaseConfig } from "./firebaseConfig.js";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
 import * as FirebaseAuth from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-import { firebaseConfig } from "./firebaseConfig.js";
 
 // Initialize Firebase for this module
 const app = initializeApp(firebaseConfig);
@@ -35,7 +31,7 @@ async function handleLogin() {
         console.log("Login successful for:", user.email);
         showStatus("Success! Redirecting...", "success");
         setTimeout(() => {
-            window.location.href = "index.html";
+            window.location.href = "../dashboard/index.html";
         }, 1500);
     } catch (error) {
         console.error("Login error:", error.code);

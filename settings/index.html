@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - Velox</title>
+    <link href="../styles/main.css" rel="stylesheet">
+    <style>
+        @media (max-width: 712px) {
+            #accountSettings>* {
+                display: block !important;
+                margin: auto;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h2><b>Velox</b></h2>
+    </header>
+
+    <div class="hero-section">
+        <br>
+        <h1>Settings</h1>
+        <br>
+    </div>
+
+    <div class="intro">
+        <h2 style="text-align: center; font-style: italic; margin-bottom: 2rem;">
+        </h2>
+
+        <section class="card">
+            <h2>Account Settings</h2>
+            <p><strong>Full Name:</strong> <span id="profile-name">Loading...</span></p>
+            <p><strong>Email Address:</strong> <span id="profile-email">Loading...</span></p>
+            <p class="text-muted">UID: <span id="profile-uid" style="font-family: monospace;"></span></p>
+            <div id="accountSettings">
+                <button id="changepw-btn">Change Password</button><br style="display: none;">
+                <button>Reset Password</button><br style="display: none;">
+                <button>Change name</button><br style="display: none;">
+                <button>Change email</button><br style="display: none;">
+                <button id="logout-btn" class="logout-btn" style="background-color: #ff7675;">Log Out</button><br style="display: none;">
+            </div>
+            <div id="changepw" style="display: none;">
+                <p>Old Password:</p>
+                <input id="pw0" type="password" class="card" style="
+                    width: 50%;
+                    min-width: 250px;
+                    height: 25px;
+                    border-color: var(--accent-color);
+                    color: var(--text-color);
+                    font-size: large;
+                    font-family: var(--font-main);
+                    font-weight: bold;
+                    padding: 1rem !important;
+                    margin-bottom: .5rem;">
+                <p>New Password (6~100):</p>
+                <input id="pw1" type="password" class="card" style="
+                    width: 50%;
+                    min-width: 250px;
+                    height: 25px;
+                    border-color: var(--accent-color);
+                    color: var(--text-color);
+                    font-size: large;
+                    font-family: var(--font-main);
+                    font-weight: bold;
+                    padding: 1rem !important;
+                    margin-bottom: .5rem;">
+                <p>Verify Password:</p>
+                <input id="pw2" type="password" class="card" style="
+                    width: 50%;
+                    min-width: 250px;
+                    height: 25px;
+                    border-color: var(--accent-color);
+                    color: var(--text-color);
+                    font-size: large;
+                    font-family: var(--font-main);
+                    font-weight: bold;
+                    padding: 1rem !important;
+                    margin-bottom: .5rem;"><br>
+                    <button id="submit">Change password</button>
+                    <button id="cancel" style="background-color: #ff7675;">Cancel</button>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Your Current Tasks</h2>
+            <p>You have no urgent deadlines at the moment. Great job staying ahead!</p>
+            <button onclick="alert('Task creation coming soon!')">
+                <h4 style="color: var(--bg-color); margin: 0;">+ Create New Task</h4>
+            </button>
+        </section>
+
+        <section class="card">
+            <h2>Quick Actions</h2>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
+                <a class="text-muted" href="#" onclick="alert('Settings opening...')"><p>Account Settings ↗</p></a>
+                <a class="text-muted" href="#" onclick="alert('Groups opening...')"><p>Manage Groups ↗</p></a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <h2><b>Velox</b></h2>
+        <a style="color: white">Contact Us</a>&nbsp;&nbsp;&nbsp;
+        <a style="color: white" href="./signup/index.html">Sign Up</a>&nbsp;&nbsp;&nbsp;
+        <a style="color: white" href="./login/index.html">Log In</a>&nbsp;&nbsp;&nbsp;
+        <a style="color: white">See Pricing</a>&nbsp;&nbsp;&nbsp;
+        <h4 style="text-align: end;">Velox Team 2026</h4>
+        <br>
+    </footer>   
+
+    <script src="../scripts/settings.js" type="module"></script>
+</body>
+</html>

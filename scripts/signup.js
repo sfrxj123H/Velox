@@ -1,21 +1,16 @@
-/**
- * Firebase Signup Logic
- * Pattern: Namespace Import (FirebaseAuth)
- * Features: Robust Validation & Server Timestamps
- */
 
 import { firebaseConfig } from "./firebaseConfig.js";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
 import * as FirebaseAuth from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-import { getFirestore, doc, setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+import * as Firestore from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = FirebaseAuth.getAuth(app);
-const db = getFirestore(app);
+const db = Firestore.getFirestore(app);
 
 /**
- * Validates the signup form with stricter conditions
+ * Validates the signup form:
  */
 function getValidationError(name, email, pw1, pw2) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -57,15 +52,15 @@ async function handleSignUp() {
         const user = userCredential.user;
 
         // 2. Save profile to Firestore with Server Timestamp
-        await setDoc(doc(db, 'users', user.uid), {
+        await Firestore.setDoc(Firestore.doc(db, 'users', user.uid), {
             name: name,
             email: user.email,
-            createdAt: serverTimestamp(),
+            createdAt: Firestore.serverTimestamp(),
         });
 
         showStatus("Account created! Redirecting...", "success");
         setTimeout(() => {
-            window.location.href = "index.html";
+            window.location.href = "../dashboard/index.html";
         }, 1500);
 
     } catch (error) {

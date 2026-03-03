@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Velox</title>
+    <link href="../styles/main.css" rel="stylesheet">
+</head>
+<body>
+    <div id="loading" class="loading-overlay">
+        <h1><b>Loading Velox...</b></h1>
+    </div>
+
+    <header>
+        <h2><b>Velox</b></h2>
+        <div class="headerInteractives" style="display: flex; justify-content: flex-end; gap: 20px;">
+            <h4 id="header-user-email" class="text-muted" style="font-size: 1rem; align-self: center;"></h4>
+        </div>
+    </header>
+
+    <div class="hero-section">
+        <br>
+        <h1>Welcome Back, <b id="user-greeting">User</b>!</h1>
+        <h3>Ready to be <code style="color: black">POWERFUL</code> today?</h3>
+        <br>
+    </div>
+
+    <div class="intro">
+        <h2 style="text-align: center; font-style: italic; margin-bottom: 2rem;">
+            Your <b style="color: var(--accent-color); font-style: normal;">Dashboard</b>
+        </h2>
+
+        <section class="card">
+            <h2>Account Details</h2>
+            <p><strong>Full Name:</strong> <span id="profile-name">Loading...</span></p>
+            <p><strong>Email Address:</strong> <span id="profile-email">Loading...</span></p>
+            <p class="text-muted">UID: <span id="profile-uid" style="font-family: monospace;"></span></p>
+        </section>
+
+        <section class="card">
+            <h2>Your Current Tasks</h2>
+            <p>You have no urgent deadlines at the moment. Great job staying ahead!</p>
+            <button onclick="alert('Task creation coming soon!')">
+                <h4 style="color: var(--bg-color); margin: 0;">+ Create New Task</h4>
+            </button>
+        </section>
+
+        <section class="card">
+            <h2>Quick Actions</h2>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
+                <a class="text-muted" href="#" onclick="alert('Settings opening...')"><p>Account Settings ↗</p></a>
+                <a class="text-muted" href="#" onclick="alert('Groups opening...')"><p>Manage Groups ↗</p></a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <h2><b>Velox</b></h2>
+        <a style="color: white">Contact Us</a>&nbsp;&nbsp;&nbsp;
+        <a style="color: white" href="./signup/index.html">Sign Up</a>&nbsp;&nbsp;&nbsp;
+        <a style="color: white" href="./login/index.html">Log In</a>&nbsp;&nbsp;&nbsp;
+        <a style="color: white">See Pricing</a>&nbsp;&nbsp;&nbsp;
+        <h4 style="text-align: end;">Velox Team 2026</h4>
+        <br>
+    </footer>   
+
+    <script src="../scripts/dashboard.js" type="module"></script>
+</body>
+</html>

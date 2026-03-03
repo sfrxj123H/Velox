@@ -55,15 +55,63 @@ function showStatus(message, type) {
 }
 
 const submitBtn = document.getElementById('submit');
-if (submitBtn) {
-    submitBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        handleLogin();
-    });
-    submitBtn.addEventListener('keypress', (e) => {
-        if (e.key == 'Enter') {
-            e.preventDefault();
-            handleLogin();
+const resetpwBtn = document.getElementById('resetpw-btn');
+submitBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    handleLogin();
+});
+resetpwBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    handlePasswordReset();
+});
+resetpwBtn.addEventListener('keypress', (e) => {
+    e.preventDefault();
+    handlePasswordReset();
+});
+
+async function handlePasswordReset() {
+    const emailInput = document.getElementById('email').value;
+    resetpwBtn.disabled = true;
+    resetpwBtn.innerText = "Sending...";
+    console.log(auth, email)
+
+    if (!emailInput) {
+        showStatus("A email is required.", "error");
+        resetpwBtn.disabled = false;
+        resetpwBtn.innerText = "Forgot password?";
+        return;
+    }
+    
+    try {
+        // Firebase method to send the reset link
+        await FirebaseAuth.sendPasswordResetEmail(auth, emailInput);
+        
+        showStatus("Reset link sent! Please check your inbox. If it doesn't appear, check your spam.", "success");
+        
+    } catch (error) {
+        console.error("Password Reset Error:", error.code);
+        let message = "Failed to send reset email.";
+
+        if (error.code === 'auth/user-not-found') {
+            message = "No account found with this email.";
+        } else if (error.code === 'auth/invalid-email') {
+            message = "Please enter a valid email address.";
+        } else if (error.code === 'auth/too-many-requests') {
+            message = "Too many requests. Try again later.";
         }
-    });
+        showStatus(message, "error");
+    } finally {
+        resetpwBtn.disabled = false;
+        resetpwBtn.innerText = "Forgot password?";
+    }
+}
+
+await auth.authStateReady();
+const user = auth.currentUser;
+
+if (user) {
+    console.log("User already logged in, redirecting to dashboard...");
+    window.location.replace("../dashboard/index.html"); 
+} else {
+
 }

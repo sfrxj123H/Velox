@@ -7,21 +7,17 @@
     <link href="../styles/main.css" rel="stylesheet">
 </head>
 <body>
-    <div id="loading" class="loading-overlay">
-        <h1><b>Loading Velox...</b></h1>
-    </div>
-
     <header>
         <h2><b>Velox</b></h2>
         <div class="headerInteractives" style="display: flex; justify-content: flex-end; gap: 20px;">
-            <h4 id="header-user-email" class="text-muted" style="font-size: 1rem; align-self: center;"></h4>
+            <a><button onclick="window.location.href = '../settings/index.html'"><h4 style="color: var(--bg-color);">Settings</h4></button></a>
         </div>
     </header>
 
     <div class="hero-section">
         <br>
-        <h1>Welcome Back, <b id="user-greeting">User</b>!</h1>
-        <h3>Ready to be <code style="color: black">POWERFUL</code> today?</h3>
+        <h1>Welcome Back!</h1>
+        <h3>Ready to be <code>POWERFUL</code> today?</h3>
         <br>
     </div>
 
@@ -43,14 +39,6 @@
             <button onclick="alert('Task creation coming soon!')">
                 <h4 style="color: var(--bg-color); margin: 0;">+ Create New Task</h4>
             </button>
-        </section>
-
-        <section class="card">
-            <h2>Quick Actions</h2>
-            <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
-                <a class="text-muted" href="#" onclick="alert('Settings opening...')"><p>Account Settings ↗</p></a>
-                <a class="text-muted" href="#" onclick="alert('Groups opening...')"><p>Manage Groups ↗</p></a>
-            </div>
         </section>
     </div>
 

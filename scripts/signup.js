@@ -91,15 +91,7 @@ function showStatus(message, type) {
 }
 
 const submitBtn = document.getElementById('submit');
-if (submitBtn) {
-    submitBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        handleSignUp();
-    });
-    submitBtn.addEventListener('keypress', (e) => {
-        if (e.key == 'Enter') {
-            e.preventDefault();
-            handleSignUp();
-        }
-    });
-}
+submitBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    handleSignUp();
+});

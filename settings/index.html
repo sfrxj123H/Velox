@@ -37,10 +37,10 @@
             <p class="text-muted">UID: <span id="profile-uid" style="font-family: monospace;"></span></p>
             <div id="accountSettings">
                 <button id="changepw-btn">Change Password</button><br style="display: none;">
-                <button>Reset Password</button><br style="display: none;">
-                <button>Change name</button><br style="display: none;">
-                <button>Change email</button><br style="display: none;">
-                <button id="logout-btn" class="logout-btn" style="background-color: #ff7675;">Log Out</button><br style="display: none;">
+                <button id="resetpw-btn">Reset Password</button><br style="display: none;">
+                <button style="display: none;">Change name</button><br style="display: none;">
+                <button style="display: none;">Change email</button><br style="display: none;">
+                <button id="logout-btn" class="logout-btn" style="background-color: #ff7675;">Log Out</button>
             </div>
             <div id="changepw" style="display: none;">
                 <p>Old Password:</p>
@@ -79,9 +79,10 @@
                     font-weight: bold;
                     padding: 1rem !important;
                     margin-bottom: .5rem;"><br>
-                    <button id="submit">Change password</button>
+                    <button id="submit1">Change Password</button>
                     <button id="cancel" style="background-color: #ff7675;">Cancel</button>
             </div>
+            <p id="status-message"></p>
         </section>
 
         <section class="card">

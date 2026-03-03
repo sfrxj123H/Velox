@@ -11,12 +11,9 @@ const app = initializeApp(firebaseConfig);
 const auth = FirebaseAuth.getAuth(app);
 const db = Firestore.getFirestore(app);
 
-const loadingOverlay = document.getElementById('loading');
-const userGreeting = document.getElementById('user-greeting');
 const profileName = document.getElementById('profile-name');
 const profileEmail = document.getElementById('profile-email');
 const profileUid = document.getElementById('profile-uid');
-const logoutBtn = document.getElementById('logout-btn');
 
 // Logic using the namespaces and instances initialized above
 FirebaseAuth.onAuthStateChanged(auth, async (user) => {
@@ -31,33 +28,15 @@ FirebaseAuth.onAuthStateChanged(auth, async (user) => {
             
             if (userDoc.exists()) {
                 const userData = userDoc.data();
-                userGreeting.innerText = userData.name || "User";
                 profileName.innerText = userData.name || "User";
             } else {
-                userGreeting.innerText = user.displayName || "User";
                 profileName.innerText = user.displayName || "User";
             }
-
-            // Remove loading overlay
-            loadingOverlay.style.display = 'none';
         } else {
             // Redirect to login if session is not active
             window.location.href = "login.html";
         }
     } catch (error) {
         console.error("Dashboard Auth Error:", error);
-        loadingOverlay.style.display = 'none';
-    }
-});
-
-// Logout logic using the namespace
-logoutBtn.addEventListener('click', async () => {
-    if (confirm("Are you sure you want to log out?")) {
-        try {
-            await FirebaseAuth.signOut(auth);
-            window.location.href = "login.html";
-        } catch (error) {
-            console.error("Logout error:", error);
-        }
     }
 });

@@ -157,7 +157,7 @@ FirebaseAuth.onAuthStateChanged(auth, async (user) => {
             }
         } else {
             // Redirect to login if session is not active
-            window.location.href = "login.html";
+            window.location.href = "../login/index.html";
         }
     } catch (error) {
         console.error("Dashboard Auth Error:", error);

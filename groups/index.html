@@ -3,40 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Velox</title>
+    <title>Group - Velox</title>
     <link href="../styles/main.css" rel="stylesheet">
     <link href="../styles/calender.css" rel="stylesheet">
 </head>
 <body>
     <header>
-        <h2><b>Velox</b></h2>
+        <h2><a style="color: var(--text-main); cursor: pointer; font-style: normal;" href="../dashboard/index.html"><b>Velox</b></a></h2>
         <div class="headerInteractives" style="display: flex; justify-content: flex-end; gap: 20px;">
             <button onclick="window.location.href = '../settings/index.html'"><h4 style="color: var(--bg-color);">Settings</h4></button>
         </div>
     </header>
 
     <div class="hero-section">
-        <br><h1>Welcome Back!</h1><h3>What are you doing today?</h3><br>
+        <br><h1>Group</h1><h3>What are you doing today?</h3><br>
     </div>
 
     <div class="intro">
         <h2 style="text-align: center; font-style: italic; margin-bottom: 2rem;">Your <b style="color: var(--accent-color);">Dashboard</b></h2>
-
-        <!-- GROUPS -->
-        <section class="card" id="groups-section" style="margin-bottom: 2rem; border-color: var(--accent-color);">
-            <h2 style="color: #10b981;">Joined groups</h2>
-            <div id="groups-list" class="item-list"><p class="empty-msg">Loading groups...</p></div>
-            <button class="btn-small btn-outline" onclick="toggleForm('groups-form')">Find group</button>
-            <button class="btn-small btn-outline" onclick="toggleForm('groups-create-form')">Create group</button>
-            <div id="groups-form" class="form-container">
-                <p>Group ID</p><input type="text" id="group-id" class="card-input">
-                <button id="add-group-btn" style="width: 100%;">Join Group</button>
-            </div>
-            <div id="groups-create-form" class="form-container">
-                <p>Group Name</p><input type="text" id="group-id" class="card-input" placeholder="e.g. Homework Group, Business Team">
-                <button id="add-group-btn" style="width: 100%;">Create</button>
-            </div>
-        </section>
 
         <!-- DEADLINES -->
         <section class="card" id="deadline-section" style="margin-bottom: 2rem; border-color: var(--accent-color);">
@@ -141,6 +125,6 @@
         }
         window.onclick = e => { if (e.target.classList.contains('modal')) e.target.style.display = 'none'; };
     </script>
-    <script src="../scripts/dashboard.js" type="module"></script>
+    <script src="../scripts/groups.js" type="module"></script>
 </body>
 </html>

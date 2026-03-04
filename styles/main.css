@@ -167,7 +167,9 @@ footer {
     }
     .headerInteractives {
         grid-template-columns: 30% 70% !important;
-        margin: auto;
+        align-items: center !important;
+        display: block;
+        margin: auto !important;
     }
     .headerInteractives>h4 {
         text-align: center !important;

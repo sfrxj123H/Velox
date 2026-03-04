@@ -95,3 +95,13 @@ submitBtn.addEventListener('click', (e) => {
     e.preventDefault();
     handleSignUp();
 });
+
+await auth.authStateReady();
+const user = auth.currentUser;
+
+if (user) {
+    console.log("User already logged in, redirecting to dashboard...");
+    window.location.replace("../dashboard/index.html"); 
+} else {
+
+}

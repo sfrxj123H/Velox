@@ -1,0 +1,352 @@
+.velox-container-fixed {
+    --vx-bg-card: #1e293b;
+    --vx-accent: #38bdf8;
+    --vx-text: #f8fafc;
+    --vx-text-muted: #94a3b8;
+    --vx-border: rgba(255, 255, 255, 0.1);
+    --vx-hour-h: 100px;
+    --vx-axis-w: 70px;
+    
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: var(--vx-bg-card);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--vx-border);
+    display: flex;
+    flex-direction: column;
+    /* Adjust this height to fit your website's layout */
+    height: 800px; 
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+    color: var(--vx-text);
+}
+
+/* Mobile specific adjustments to fix scale errors */
+@media (max-width: 640px) {
+    .velox-container-fixed {
+        --vx-hour-h: 60px; /* Shorter hours on mobile to see more of the day */
+        --vx-axis-w: 50px; /* Slimmer time axis */
+        height: 90vh; /* Use viewport height on mobile */
+    }
+    .vx-header span { font-size: 0.8rem; }
+    .vx-day { font-size: 0.7rem !important; }
+    .vx-day span { font-size: 0.6rem !important; }
+}
+
+.vx-header {
+    padding: 15px 20px;
+    background: rgba(0,0,0,0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--vx-border);
+}
+
+.vx-calendar-header {
+    display: flex;
+    background: var(--vx-accent);
+    color: #0f172a;
+    font-weight: 800;
+    flex-shrink: 0;
+}
+
+.vx-time-corner {
+    width: var(--vx-axis-w);
+    border-right: 1px solid rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+}
+
+.vx-days-row {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    flex-grow: 1;
+}
+
+.vx-day {
+    padding: 10px 5px;
+    text-align: center;
+    border-right: 1px solid rgba(0,0,0,0.1);
+    font-size: 0.85rem;
+}
+
+.vx-day span {
+    display: block;
+    font-size: 0.7rem;
+    opacity: 0.8;
+    font-weight: 500;
+}
+
+.vx-scroll-area {
+    flex-grow: 1;
+    overflow-y: auto;
+    display: flex;
+    position: relative;
+    background: #111827; /* Internal calendar background only */
+}
+
+.vx-time-axis {
+    width: var(--vx-axis-w);
+    border-right: 1px solid var(--vx-border);
+    flex-shrink: 0;
+}
+
+.vx-time-slot {
+    width: var(--vx-axis-w);
+    height: var(--vx-hour-h);
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 5px 10px 0 0;
+    color: var(--vx-text-muted);
+    font-size: 0.7rem;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+    box-sizing: border-box;
+}
+
+.vx-grid {
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    position: relative;
+    height: calc(var(--vx-hour-h) * 24);
+    background-image: linear-gradient(var(--vx-border) 1px, transparent 1px);
+    background-size: 100% var(--vx-hour-h);
+}
+
+.vx-col { border-right: 1px solid var(--vx-border); }
+
+.vx-now-line {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #ff4d4d;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.vx-now-line::before {
+    content: '';
+    position: absolute;
+    left: -4px;
+    top: -4px;
+    width: 10px;
+    height: 10px;
+    background: #ff4d4d;
+    border-radius: 50%;
+}
+
+/* Isolated Scrollbar */
+.vx-scroll-area::-webkit-scrollbar { width: 6px; }
+.vx-scroll-area::-webkit-scrollbar-thumb { background: var(--vx-accent); border-radius: 10px; }
+
+.day-selector {
+    display: flex;
+    gap: 10px;
+    margin: 1rem 0;
+    flex-wrap: wrap;
+}
+/* Keep checkbox accessible to screen readers but visually hidden */
+.day-checkbox {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+.day-label {
+    padding: 8px 12px;
+    border: 1px solid var(--accent-color);
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.8rem;
+    transition: all 0.2s;
+    color: var(--text-color);
+    background: rgba(255,255,255,0.05);
+    user-select: none;
+}
+/* Show focus state for keyboard users */
+.day-label:focus {
+    outline: 2px solid #818cf8;
+    outline-offset: 2px;
+}
+.day-checkbox:checked + .day-label {
+    background: var(--accent-color);
+    color: var(--bg-color);
+}
+
+/* Styles for listing and toggling forms */
+.item-list {
+    margin: 1rem 0;
+}
+.item-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    margin-bottom: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.item-info b {
+    display: block;
+    color: var(--text-color);
+}
+.item-info span {
+    font-size: 0.85rem;
+    opacity: 0.7;
+}
+.item-actions {
+    display: flex;
+    gap: 8px;
+}
+.btn-small {
+    padding: 6px 12px;
+    font-size: 0.75rem;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+}
+.btn-edit { background: #6366f1; color: white; }
+.btn-delete { background: #ef4444; color: white; }
+.btn-outline { 
+    background: transparent; 
+    border: 1px solid var(--accent-color); 
+    color: var(--text-color); 
+    width: 100%;
+    margin-top: 10px;
+}
+.form-container {
+    display: none; /* Hidden by default */
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px dashed rgba(255,255,255,0.2);
+}
+.button-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 1rem;
+}
+input.card-input, textarea.card-input {
+    width: 100%;
+    box-sizing: border-box;
+    background: var(--card-bg);
+    border: 1px solid var(--accent-color);
+    color: var(--text-color);
+    font-size: 1rem;
+    font-family: var(--font-main);
+    font-weight: bold;
+    padding: 0.8rem 1rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+}
+textarea.card-input {
+    height: 80px;
+    resize: vertical;
+    font-weight: normal;
+}
+
+/* Empty state helper */
+.empty-msg {
+    text-align: center;
+    opacity: 0.5;
+    padding: 1rem;
+    font-style: italic;
+}
+
+.day-selector {
+    display: flex;
+    gap: 10px;
+    margin: 1rem 0;
+    flex-wrap: wrap;
+}
+.day-checkbox {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+.day-label {
+    padding: 8px 12px;
+    border: 1px solid var(--accent-color);
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.8rem;
+    transition: all 0.2s;
+    color: var(--text-color);
+    background: rgba(255,255,255,0.05);
+    user-select: none;
+}
+.day-checkbox:checked + .day-label {
+    background: var(--accent-color);
+    color: var(--bg-color);
+}
+
+.item-list { margin: 1rem 0; }
+.btn-small { padding: 6px 12px; font-size: 0.75rem; border-radius: 4px; cursor: pointer; border: none; }
+.btn-outline { background: transparent; border: 1px solid var(--accent-color); color: var(--text-color); width: 100%; margin-top: 10px; }
+
+.form-container {
+    display: none; 
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px dashed rgba(255,255,255,0.2);
+}
+.card-input {
+    width: 100%;
+    box-sizing: border-box;
+    height: 45px;
+    background: var(--card-bg);
+    border: 1px solid var(--accent-color);
+    color: var(--text-color);
+    font-size: 1rem;
+    padding: 0 1rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    font-family: inherit;
+}
+textarea.card-input { height: 80px; padding: 1rem; resize: none; }
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.85);
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(4px);
+}
+.modal-content {
+    background: var(--bg-color);
+    color: var(--text-main) !important;
+    padding: 24px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 450px;
+    border: 1px solid var(--accent-color);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+}
+.modal-content h3 { color: white; margin-bottom: 1.5rem; }
+.modal-content p { margin: 10px 0 5px 0; font-size: 0.9rem; opacity: 0.8; color: white; }

@@ -169,7 +169,7 @@ logoutBtn.addEventListener('click', async () => {
     if (confirm("Are you sure you want to log out?")) {
         try {
             await FirebaseAuth.signOut(auth);
-            window.location.href = "login.html";
+            window.location.href = "../login/index.html";
         } catch (error) {
             console.error("Logout error:", error);
         }
